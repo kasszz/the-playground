@@ -1,0 +1,56 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks'
+import HilbertCurve from './hilbert-curve.vue'
+
+<Meta
+  title="Experiments/Hilbert Curve"
+  components={ HilbertCurve }
+  argTypes={{
+    order: {
+      control: { type: 'range', min: 1, max: 8 },
+      name: 'Order',
+      description: 'The square root of order is used to calculate how many points the Hilbert curve uses',
+    },
+    stageSize: {
+      control: { type: 'radio', options: [ '128x128', '256x256', '512x512', '1024x1024' ]},
+      name: 'Stage size',
+      description: 'The width and height of the stage (in pixels)',
+    },
+    cycleInterval: {
+      control: { type: 'range', min: 1, max: 2000 },
+      name: 'Cycle Interval',
+      description: 'The time between each cycle (in miliseconds)',
+    },
+    drawPoints: {
+      control: { type: 'boolean' },
+      name: 'Draw points',
+      description: 'Enable to see the points that the Hilbert curve uses to create the path',
+    }
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { HilbertCurve },
+  template: '<hilbert-curve :options="$props" />'
+})
+
+# Hilbert Curve
+
+Bla bla bla bla
+
+<Preview>
+  <Story
+    name="Default"
+    args={{
+      order: 7,
+      stageSize: '512x512',
+      cycleInterval: 1,
+      drawPoints: false
+    }}
+  >
+    { Template.bind({}) }
+  </Story>
+</Preview>
+
+<Props story="Default" />
+
