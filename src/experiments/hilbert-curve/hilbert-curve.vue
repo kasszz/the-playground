@@ -10,10 +10,32 @@ export default {
     options: {
       type: Object,
       required: true
+    },
+  },
+  data() {
+    return {
+      containerElement: null
     }
   },
   mounted() {
-    new HilbertCurve('#canvas', this.options)
+    this.containerElement = document.querySelector('#canvas')
+
+    this.initHibertCurve()
+  },
+  methods: {
+    initHibertCurve() {
+      this.containerElement.innerHTML = ''
+
+      new HilbertCurve('#canvas', this.options)
+    }
+  },
+  watch: {
+    options: {
+      handler() {
+        this.initHibertCurve()
+      },
+      deep: true
+    }
   }
 }
 </script>
