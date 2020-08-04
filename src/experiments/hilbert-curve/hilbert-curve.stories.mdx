@@ -35,8 +35,26 @@ export const Template = (args, { argTypes }) => ({
 })
 
 # Hilbert Curve
+###### 15 July 2020
 
-Bla bla bla bla
+The Hilbert Curve is one of the many space filling curves out there. It uses fractals to create a specific pattern over and over again entil the view is completely filled.
+A fractal is a mathematical curve that retains the same general pattern regardless of the order it's calculated at. One of the most populair fractal is the [Mandelbrot set](https://en.wikipedia.org/wiki/Mandelbrot_set).
+
+## How does it work?
+
+The smallest shape of the Hilbert Curve is a square with one size removed. That means it have four points and three lines. This can be seen when you set the order of the curve to one.
+
+The curves' length is calculated by taking the amount of points of the first order and multipling that by the power of the order. For example, when the order is 3 the number of points will be 64, because 4^3 = 64.
+
+The trick behind the Hilbert Curve is the rotation of the first order shape and then sticking the shapes together. From the second order and up it follows the same pattern:
+
+1. Rotate right
+2. No rotation
+3. No ratation
+4. Rotate left
+
+This is done to every order of the shape. When playing around with the order in the canvas it shows that when the order is increased the curve/view looks more zoomed out.
+This is because of that pattern. It's the same on every order. Only the amount of segments are increased and rotated.
 
 <Preview>
   <Story
