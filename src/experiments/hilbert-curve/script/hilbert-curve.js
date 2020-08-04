@@ -46,7 +46,7 @@ export default class HilbertCurve {
       context.arc(currentPoint.x * this.segmentLength + this.segmentOffset, currentPoint.y * this.segmentLength + this.segmentOffset, 2, 0, Math.PI * 2)
       context.fillStyle = '#FFF'
 
-      context.fillText(this.cycleCount, currentPoint.x * this.segmentLength + this.segmentOffset + 5, currentPoint.y * this.segmentLength + this.segmentOffset + 5)
+      context.fillText(this.cycleCount + 1, currentPoint.x * this.segmentLength + this.segmentOffset + 5, currentPoint.y * this.segmentLength + this.segmentOffset + 5)
 
       context.fill()
     }
