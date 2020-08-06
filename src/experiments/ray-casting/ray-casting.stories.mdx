@@ -1,0 +1,34 @@
+import { Meta, Preview, Story, Props } from '@storybook/addon-docs/blocks'
+import RayCasting from './ray-casting.vue'
+
+<Meta
+  title="Experiments/Ray Casting"
+  components={ RayCasting }
+  argTypes={{
+    numberOfRays: {
+      control: { type: 'range', min: 1, max: 600 },
+      name: 'Number of rays',
+      description: 'The number of lines shooting out of the mouse position',
+    }
+  }}
+/>
+
+export const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { RayCasting },
+  template: '<ray-casting :options="$props" />'
+})
+
+<Preview>
+  <Story
+    name="Default"
+    args={{
+      numberOfRays: 300
+    }}
+  >
+    { Template.bind({}) }
+  </Story>
+</Preview>
+
+<Props story="Default" />
+
